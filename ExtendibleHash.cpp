@@ -74,7 +74,7 @@ void ExtendibleHash::remove(const int &object)
 
 const int & ExtendibleHash::find(const int &object)
 {
-  int i, j, k, target;
+  int i, j, k;
   k = size;
   j = 0;
   
@@ -88,8 +88,8 @@ const int & ExtendibleHash::find(const int &object)
       j = j + k;
     }
   }
-  return( Directory[j]->find(object));
-  //return target;
+  target=  Directory[j]->find(object);
+  return target;
 }  // find()
 
 

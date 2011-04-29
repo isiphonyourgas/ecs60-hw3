@@ -10,6 +10,7 @@ class ExtendibleHash
   int size;
   int LeafSize;
   int bit;
+  int target;
 
 public:
   ExtendibleHash(const int & notFound, int s, int LSize = 2);
