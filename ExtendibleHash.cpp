@@ -129,7 +129,7 @@ void ExtendibleHash::split(const int &object)
     }//sets new ptrs
   }
   //bits++;
-cout << "split: "<< bits<<endl;
+//cout << "split: "<< bits<<endl;
 }  // split();
 
 void ExtendibleHash::splitCheck()
@@ -184,14 +184,19 @@ void ExtendibleLeaf::insert(int value)
   if(count == size)
   {
     parent->split(position);
+//cout<<"Pre\n\n";
+//parent->print();
     bitset<18> bitCheck (value);
-    if(bitCheck[18 - (bits - 1)] == 0)
+//cout << "bitCheck "<<bitCheck[18 - (bits-1)] << endl;
+    if(bitCheck[18 - (bits-1)] == 0)
     {
       content[count] = value;
       count++;
     } else {
       parent->insertNext(value, position);
     }
+//cout<<"post\n\n";
+//parent->print();
   } else {
   
   content[count] = value;
@@ -223,18 +228,21 @@ void ExtendibleLeaf::remove(int value)
 void ExtendibleLeaf::split(ExtendibleLeaf *nextSibling)
 {
   int i;
-cout << "                                                  " << bits << endl;
+  int removed = 0;
   nextSibling->setbit(bits + 1);
   bitset<18> bitCheck;
   for(i = 0; i < count; i++)
   {
     bitCheck = content[i];
-    if(bitCheck[18 - (bits)] == 1)
+    if(bitCheck[18 - bits] == 1)
     {
       nextSibling->insert(content[i]);
       this->remove(content[i]);
+      count++;
+      removed++;
     }
   }
+  count = count - removed;
   bits++;
 }
 
