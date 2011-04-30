@@ -45,7 +45,7 @@ void ExtendibleHash::insert(const int &object)
   for(i = 0; i < bits; i++)//Iterates to where the insertion needs to be
   {
       k = k / 2;//Calculates spaces moved
-    if(bitCheck[18 - i] == 1)//If current bit is 1
+    if(bitCheck[18 - (i+1)] == 1)//If current bit is 1
     {
       j = j + k;;//Does actual move
     }
