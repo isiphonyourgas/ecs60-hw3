@@ -23,12 +23,12 @@ ExtendibleHash::ExtendibleHash(const int & notFound, int b, int LSize) :
 
   
 
- /* for(i = 0; i < size; i++)
+  for(i = 0; i < size; i++)
   {
     Directory[i] = ptr;
-  }*/
-  Directory[0] = new ExtendibleLeaf(LSize, 0, bits);
-  Directory[1] = new ExtendibleLeaf(LSize, 0, bits);
+  }
+ // Directory[0] = new ExtendibleLeaf(LSize, 0, bits);
+ // Directory[1] = new ExtendibleLeaf(LSize, 0, bits);
   LeafSize = LSize;
   
 } // ExtendibleHash()
@@ -36,7 +36,7 @@ ExtendibleHash::ExtendibleHash(const int & notFound, int b, int LSize) :
 void ExtendibleHash::insert(const int &object)
 {
   int i, j, k;
-  int temp;
+  //int temp;
   k = size;//Initializes k for future use
   j = 0;
 
@@ -67,7 +67,7 @@ void ExtendibleHash::remove(const int &object)
   for(i = 0; i < bits; i++)
   {
     k = k / 2;
-    if(bitCheck[18 -i] == 1)
+    if(bitCheck[18 - (i+1)] == 1)
     {
       j = j + k;
     }
@@ -88,7 +88,7 @@ const int & ExtendibleHash::find(const int &object)
   for(i = 0; i < bits; i++)
   {
     k = k / 2;
-    if(bitCheck[18 - i] == 1)
+    if(bitCheck[18 - (i+1)] == 1)
     {
       j = j + k;
     }
@@ -140,7 +140,6 @@ void ExtendibleHash::splitCheck()
 void ExtendibleHash::rehash()
 {
   int i;
-cout << "rehashed\n";
   ExtendibleLeaf **ptr;
   ptr = new ExtendibleLeaf*[size * 2];
   bits++;
@@ -176,8 +175,8 @@ ExtendibleLeaf::ExtendibleLeaf(const int LeafSize, int pos, int bit)
   //check = checks;
   content = new int[LeafSize];
   count = 0;
-size = 1000;
- // size = LeafSize;
+//size = 1000;
+  size = LeafSize;
 }//Extendible Leaf
 
 void ExtendibleLeaf::insert(int value)
@@ -230,7 +229,7 @@ cout << "                                                  " << bits << endl;
   for(i = 0; i < count; i++)
   {
     bitCheck = content[i];
-    if(bitCheck[18 - (bits - 1)] == 1)
+    if(bitCheck[18 - (bits)] == 1)
     {
       nextSibling->insert(content[i]);
       this->remove(content[i]);

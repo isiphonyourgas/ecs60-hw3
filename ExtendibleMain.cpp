@@ -30,7 +30,7 @@ bitset<18> bitCheck;
     {
       case 'i' : 
         bitCheck = value;
-//        cout<< "bitcheck " << bitCheck << endl;
+//        cout<< "\nbitcheck " << bitCheck << endl;
         hash.insert(value);
 //	hash.print();
  break;
