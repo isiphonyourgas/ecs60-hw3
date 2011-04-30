@@ -5,6 +5,8 @@
 #include <cstring>
 #include "ExtendibleHash.h"
 
+#include <bitset>
+
 using namespace std;
 int main(int argc, char* argv[])
 // argv[1] is data filename in the form: "Hash-" Maxsize "-" LeafSize "-"
@@ -20,12 +22,18 @@ int main(int argc, char* argv[])
   StartBits = atoi(strtok(NULL, "-"));
   ExtendibleHash  hash(-1, StartBits, LeafSize);
 
+bitset<18> bitCheck;
   while(inf >> command)
   {
     inf >> value;
     switch(command)
     {
-      case 'i' : hash.insert(value); break;
+      case 'i' : 
+        bitCheck = value;
+        cout<< "bitcheck " << bitCheck << endl;
+        hash.insert(value);
+	hash.print();
+ break;
       case 'd' : hash.remove(value); break;
       case 'f' :
         inf >> value2;
@@ -37,5 +45,6 @@ int main(int argc, char* argv[])
           cout << "Bad bits: Expected: " << value << " got: " << hash.GetBits() << endl;
     } // switch
   } // while more in file
+hash.print();
   return 0;
 } // main()
