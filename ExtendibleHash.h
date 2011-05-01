@@ -34,7 +34,7 @@ public:
   void insert(int value);
   void remove(int value);
   void split(ExtendibleLeaf *nextSibling);
-//  void splitCheck();
+  void split2();
   const int find(const int value);
   void setbit(int i);
   void setpos(int i);

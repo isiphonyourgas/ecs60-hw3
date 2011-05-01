@@ -138,10 +138,10 @@ void ExtendibleHash::split(const int &object)
   if(counter == 1)
   {
     this->rehash();
-    ExtendibleLeaf *ptr = new ExtendibleLeaf(LeafSize, (2 * pos) + 1, bits);
-    ptr->parent=this;
-    Directory[2 * pos]->split(ptr);
-    Directory[(2 * pos) + 1] = ptr;
+   // ExtendibleLeaf *ptr = new ExtendibleLeaf(LeafSize, (2 * pos) + 1, bits);
+   // ptr->parent=this;
+   // Directory[2 * pos]->split(ptr);
+   // Directory[(2 * pos) + 1] = ptr;
   } else {
     ExtendibleLeaf *ptr = new ExtendibleLeaf(LeafSize, pos +(counter/2), 0);
     ptr->parent=this;
@@ -164,17 +164,32 @@ void ExtendibleHash::rehash()
 {
   int i;
    size = size * 2;
-  ExtendibleLeaf **ptr;
+  ExtendibleLeaf **ptr, **temp, *ptr2;
   ptr = new ExtendibleLeaf*[size];
   bits++;
-  for(i = 0; i < (size / 2); i++)
+  /*for(i = 0; i < (size / 2); i++)
   {
     ptr[2 * i] = Directory[i];
     ptr[(2 * i) + 1] = Directory[i];
     Directory[i]->setpos(2 * i);
   }//Seting new pointers
  
+  Directory = ptr;*/
+  temp = Directory;
+  ptr = new ExtendibleLeaf*[size];
+  ptr2 = new ExtendibleLeaf(LeafSize, 0, 1);
+  for(i =0; i < (size/2); i++)
+  {
+      ptr[i] = ptr2;
+      ptr[i]->parent = this;
+  }
   Directory = ptr;
+  for(i = 0; i < (size/2); i++)
+  {
+      temp[i]->split2();
+  }
+  delete temp;
+  
 }
 
 void ExtendibleHash::print()
@@ -324,4 +339,13 @@ void ExtendibleLeaf::print()
     bitCheck = content[i];
     cout<<i<<". "<<content[i] << "  bits: " << bitCheck << endl;
   }
+}
+
+void ExtendibleLeaf::split2()
+{
+    int i;
+    for(i = 0; i < count; i++)
+    {
+        parent->insert(content[i]);
+    }
 }
