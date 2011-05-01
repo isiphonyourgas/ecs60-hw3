@@ -28,9 +28,9 @@ int main(int argc, char* argv[])
       case 'i' : hash.insert(value); break;
       case 'd' : hash.remove(value); break;
       case 'f' :
-          cout<<"Finding Shit: ";
-          cout<<value<<endl;
-          hash.print();
+          //cout<<"Finding Shit: ";
+          //cout<<value<<endl;
+          //hash.print();
         inf >> value2;
         if(value2 != hash.find(value))
           cout << "Bad find: Sought:" << value << " returned: " << hash.find(value) << endl;
