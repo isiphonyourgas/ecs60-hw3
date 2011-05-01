@@ -31,7 +31,7 @@ DEFAULTCONF=Default
 CONF=${DEFAULTCONF}
 
 # All Configurations
-ALLCONFS=Default Hash-5-3-1-2.dat Hash-5-3-1-3.dat Hash-10 Hash-300 Hash-9000 Hash-11 
+ALLCONFS=Default Hash-5-3-1-2.dat Hash-5-3-1-3.dat Hash-10 Hash-300 Hash-9000 Hash-11 Hash_new_9k test00 test01 Hash-8 
 
 
 # build

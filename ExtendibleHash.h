@@ -30,6 +30,7 @@ class ExtendibleLeaf
 {
 public:
   ExtendibleLeaf(int LeafSize, int pos, int bit);
+  void insert2(int value);
   void insert(int value);
   void remove(int value);
   void split(ExtendibleLeaf *nextSibling);

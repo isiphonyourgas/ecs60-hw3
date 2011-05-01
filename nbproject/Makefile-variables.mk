@@ -62,3 +62,35 @@ CND_ARTIFACT_PATH_Hash-11=./ExtendibleMain.out
 CND_PACKAGE_DIR_Hash-11=dist/Hash-11/GNU-Linux-x86/package
 CND_PACKAGE_NAME_Hash-11=ecs60-hw3.tar
 CND_PACKAGE_PATH_Hash-11=dist/Hash-11/GNU-Linux-x86/package/ecs60-hw3.tar
+# Hash_new_9k configuration
+CND_PLATFORM_Hash_new_9k=GNU-Linux-x86
+CND_ARTIFACT_DIR_Hash_new_9k=.
+CND_ARTIFACT_NAME_Hash_new_9k=ExtendibleMain.out
+CND_ARTIFACT_PATH_Hash_new_9k=./ExtendibleMain.out
+CND_PACKAGE_DIR_Hash_new_9k=dist/Hash_new_9k/GNU-Linux-x86/package
+CND_PACKAGE_NAME_Hash_new_9k=ecs60-hw3.tar
+CND_PACKAGE_PATH_Hash_new_9k=dist/Hash_new_9k/GNU-Linux-x86/package/ecs60-hw3.tar
+# test00 configuration
+CND_PLATFORM_test00=GNU-Linux-x86
+CND_ARTIFACT_DIR_test00=.
+CND_ARTIFACT_NAME_test00=ExtendibleMain.out
+CND_ARTIFACT_PATH_test00=./ExtendibleMain.out
+CND_PACKAGE_DIR_test00=dist/test00/GNU-Linux-x86/package
+CND_PACKAGE_NAME_test00=ecs60-hw3.tar
+CND_PACKAGE_PATH_test00=dist/test00/GNU-Linux-x86/package/ecs60-hw3.tar
+# test01 configuration
+CND_PLATFORM_test01=GNU-Linux-x86
+CND_ARTIFACT_DIR_test01=.
+CND_ARTIFACT_NAME_test01=ExtendibleMain.out
+CND_ARTIFACT_PATH_test01=./ExtendibleMain.out
+CND_PACKAGE_DIR_test01=dist/test01/GNU-Linux-x86/package
+CND_PACKAGE_NAME_test01=ecs60-hw3.tar
+CND_PACKAGE_PATH_test01=dist/test01/GNU-Linux-x86/package/ecs60-hw3.tar
+# Hash-8 configuration
+CND_PLATFORM_Hash-8=GNU-Linux-x86
+CND_ARTIFACT_DIR_Hash-8=.
+CND_ARTIFACT_NAME_Hash-8=ExtendibleMain.out
+CND_ARTIFACT_PATH_Hash-8=./ExtendibleMain.out
+CND_PACKAGE_DIR_Hash-8=dist/Hash-8/GNU-Linux-x86/package
+CND_PACKAGE_NAME_Hash-8=ecs60-hw3.tar
+CND_PACKAGE_PATH_Hash-8=dist/Hash-8/GNU-Linux-x86/package/ecs60-hw3.tar

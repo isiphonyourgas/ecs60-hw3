@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <configurationDescriptor version="62">
   <projectmakefile>Makefile-ecs60-hw3.mk</projectmakefile>
-  <defaultConf>4</defaultConf>
+  <defaultConf>10</defaultConf>
   <confs>
     <conf name="Default" type="0">
       <gdbdebugger version="2">
@@ -127,6 +127,81 @@
       </gizmo_options>
       <runprofile version="6">
         <args>Hash-11-11-11-11.dat</args>
+        <rundir></rundir>
+        <buildfirst>true</buildfirst>
+        <console-type>0</console-type>
+        <terminal-type>0</terminal-type>
+        <remove-instrumentation>0</remove-instrumentation>
+        <environment>
+        </environment>
+      </runprofile>
+    </conf>
+    <conf name="Hash_new_9k" type="0">
+      <gdbdebugger version="2">
+        <gdb_command>gdb</gdb_command>
+        <array_repeat_threshold>10</array_repeat_threshold>
+      </gdbdebugger>
+      <gizmo_options version="3">
+        <configurationname>GizmoSimple</configurationname>
+      </gizmo_options>
+      <runprofile version="6">
+        <args>Hash-9000-9000-1-11.dat</args>
+        <rundir></rundir>
+        <buildfirst>true</buildfirst>
+        <console-type>0</console-type>
+        <terminal-type>0</terminal-type>
+        <remove-instrumentation>0</remove-instrumentation>
+        <environment>
+        </environment>
+      </runprofile>
+    </conf>
+    <conf name="test00" type="0">
+      <gdbdebugger version="2">
+        <gdb_command>gdb</gdb_command>
+        <array_repeat_threshold>10</array_repeat_threshold>
+      </gdbdebugger>
+      <gizmo_options version="3">
+        <configurationname>GizmoSimple</configurationname>
+      </gizmo_options>
+      <runprofile version="6">
+        <args>test-x-2-1-00.dat</args>
+        <rundir></rundir>
+        <buildfirst>true</buildfirst>
+        <console-type>0</console-type>
+        <terminal-type>0</terminal-type>
+        <remove-instrumentation>0</remove-instrumentation>
+        <environment>
+        </environment>
+      </runprofile>
+    </conf>
+    <conf name="test01" type="0">
+      <gdbdebugger version="2">
+        <gdb_command>gdb</gdb_command>
+        <array_repeat_threshold>10</array_repeat_threshold>
+      </gdbdebugger>
+      <gizmo_options version="3">
+        <configurationname>GizmoSimple</configurationname>
+      </gizmo_options>
+      <runprofile version="6">
+        <args>test-x-2-1-01.dat</args>
+        <rundir></rundir>
+        <buildfirst>true</buildfirst>
+        <console-type>0</console-type>
+        <terminal-type>0</terminal-type>
+        <remove-instrumentation>0</remove-instrumentation>
+        <environment>
+        </environment>
+      </runprofile>
+    </conf>
+    <conf name="Hash-8" type="0">
+      <gdbdebugger version="2">
+        <gdb_command>gdb</gdb_command>
+        <array_repeat_threshold>10</array_repeat_threshold>
+      </gdbdebugger>
+      <gizmo_options version="3">
+      </gizmo_options>
+      <runprofile version="6">
+        <args>Hash-8-3-2-11.dat</args>
         <rundir></rundir>
         <buildfirst>true</buildfirst>
         <console-type>0</console-type>
