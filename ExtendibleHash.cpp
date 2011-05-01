@@ -44,7 +44,7 @@ void ExtendibleHash::insert(const int &object)
   j = 0;
   if(object == 115370)
   {
-    cout << endl;
+    cout << "HIIIIII\n";
   }
 //  bitset<18> bitCheck;//Converts into bits
 //  bitCheck = object;
@@ -69,9 +69,11 @@ void ExtendibleHash::insert(const int &object)
   if (k != -1)
   {
   this->split(k);
+  j = 0;
   } else {
       break;
   }
+
   }
  // cout << j << endl;
   
@@ -153,6 +155,7 @@ void ExtendibleHash::split(const int &object)
    // Directory[2 * pos]->split(ptr);
    // Directory[(2 * pos) + 1] = ptr;
   } else {
+      cout << "Shits is splitting like a mofo\n";
     ExtendibleLeaf *ptr = new ExtendibleLeaf(LeafSize, pos +(counter/2), 0);
     ptr->parent=this;
     Directory[pos]->split(ptr);
