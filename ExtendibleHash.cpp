@@ -6,8 +6,8 @@ using namespace std;
 int Ehash(int value, int bits)
 {
     int check;
-    bitset<18> set (value);
-    check = set[18 - (bits + 1)];
+    //bitset<18> set (value);
+    check = value >> (18 - bits);
   return check;
 } // Ehash()
 
@@ -42,21 +42,26 @@ void ExtendibleHash::insert(const int &object)
   //int temp;
   k = size;//Initializes k for future use
   j = 0;
-
+  if(object == 115370)
+  {
+    cout << endl;
+  }
 //  bitset<18> bitCheck;//Converts into bits
 //  bitCheck = object;
-  for(i = 0; i < bits; i++)//Iterates to where the insertion needs to be
+/*  for(i = 0; i < bits; i++)//Iterates to where the insertion needs to be
   {
       k = k / 2;//Calculates spaces moved
-    if(Ehash(object,i) == 1)//If current bit is 1
+    if(Ehash(object,i + 1) == 1)//If current bit is 1
     {
       j = j + k;;//Does actual move
     }
-  }
-  if(object == 18173)
+  }*/
+
+  j = Ehash(object, bits);
+/*  if(object == 128786)
       cout << "hi"<<endl;
   if(object == 3544)
-      cout << "blah" << endl;
+      cout << "blah" << endl;*/
   Directory[j]->insert(object);
  // cout << j << endl;
   
@@ -71,14 +76,16 @@ void ExtendibleHash::remove(const int &object)
 
  // bitset<18> bitCheck;
 //  bitCheck = object;
-  for(i = 0; i < bits; i++)
+/*  for(i = 0; i < bits; i++)
   {
     k = k / 2;
     if(Ehash(object,i) == 1)
     {
       j = j + k;
     }
-  }
+  }*/
+  j = Ehash(object, bits);
+
   Directory[j]->remove(object);
 
 }  // remove()
@@ -89,21 +96,26 @@ const int & ExtendibleHash::find(const int &object)
   int i, j, k;
   k = size;
   j = 0;
-  if(object == 184277 )
-      cout << "";
+/*  if(object == 184277 )
+  {
+cout << "\n\n\n\n\n";
+    this->print();
+  }*/
   
 //  bitset<18> bitCheck;
 //  bitCheck = object;
-  for(i = 0; i < (bits); i++)//change 18 to bits
+/*  for(i = 1; i < (bits + 1); i++)//change 18 to bits
   {
     k = k / 2;
     if(Ehash(object,i) == 1)
     {
       j = j + k;
     }
-  }
+  }*/
+  j = Ehash(object, bits);
   target=  Directory[j]->find(object);
   return target;
+//cout<< "\n\n\n\n\n\n";
 }  // find()
 
 
@@ -126,7 +138,7 @@ void ExtendibleHash::split(const int &object)
   if(counter == 1)
   {
     this->rehash();
-    ExtendibleLeaf *ptr = new ExtendibleLeaf(LeafSize, (2 * pos) + 1, bits + 1);
+    ExtendibleLeaf *ptr = new ExtendibleLeaf(LeafSize, (2 * pos) + 1, bits);
     ptr->parent=this;
     Directory[2 * pos]->split(ptr);
     Directory[(2 * pos) + 1] = ptr;
@@ -173,6 +185,7 @@ void ExtendibleHash::print()
     cout<< "Hash index: " << i << endl;
     Directory[i]->print();
   }
+  cout << endl;
 }
 
 void ExtendibleHash::insertNext(int value, int pos)
@@ -201,8 +214,6 @@ ExtendibleLeaf::ExtendibleLeaf(const int LeafSize, int pos, int bit)
 
 void ExtendibleLeaf::insert2(int value)
 {
-    if(count >= size)
-        cout << "a\n";
     content[count] = value;
     count++;
 }
@@ -215,13 +226,14 @@ void ExtendibleLeaf::insert(int value)
 //parent->print();
 //    bitset<18> bitCheck (value);
 //cout << "bitCheck "<<bitCheck[18 - (bits-1)] << endl;
-    if(Ehash(value,bits -1) == 0)
+/*    if(Ehash(value,bits -1) == 0)
     {
       content[count] = value;
       count++;
     } else {
       parent->insertNext(value, position);
-    }
+    }*/
+    parent->insert(value);
 //cout<<"post\n\n";
 //parent->print();
   } else {
@@ -258,19 +270,25 @@ void ExtendibleLeaf::split(ExtendibleLeaf *nextSibling)
   int i;
   int removed = 0;
   nextSibling->setbit(bits + 1);
-//  bitset<18> bitCheck;
+  bitset<18> bitCheck;
   for(i = 0; i < count; i++)
   {
-//    bitCheck = content[i];
-    if(Ehash(content[i],bits) == 1)
+    bitCheck = content[i];
+
+    if((bitCheck[18 - bits] == 1) && (i != count - 1))
     {
       nextSibling->insert(content[i]);
       this->remove(content[i]);
-      count++;
-      removed++;
+      i--;
+    }
+
+    if((bitCheck[18-bits] == 1) && (i == count - 1))
+    {
+      nextSibling->insert(content[i]);
+      count--;
+      break;
     }
   }
-  count = count - removed;
   bits++;
 }
 

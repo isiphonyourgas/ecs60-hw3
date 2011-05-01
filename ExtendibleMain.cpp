@@ -26,24 +26,24 @@ int main(int argc, char* argv[])
   while(inf >> command)
   {
 
-      //hash.print();
+//      hash.print();
     inf >> value;
     set = value;
  //   cout <<value<<endl;
     switch(command)
     {
       case 'i' :
-         // cout<<"Insert " << value <<"       "<< set << endl;
+//          cout<<"Insert " << value <<"       "<< set << endl;
           hash.insert(value);
-       //   hash.print();
+//          hash.print();
           break;
       case 'd' :
-      //    cout << "Remove " << value << "        " <<set << endl;
+//          cout << "Remove " << value << "        " <<set << endl;
           hash.remove(value);
-      //    hash.print();
+//          hash.print();
           break;
       case 'f' :
-          cout<<"Finding Shit: " << set << endl;
+        //  cout<<"Finding Shit: " << set << endl;
           //cout<<value<<endl;
           //hash.print();
         inf >> value2;
