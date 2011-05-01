@@ -118,10 +118,12 @@ void ExtendibleHash::split(const int &object)
   {
     this->rehash();
     ExtendibleLeaf *ptr = new ExtendibleLeaf(LeafSize, (2 * pos) + 1, bits + 1);
+    ptr->parent=this;
     Directory[2 * pos]->split(ptr);
     Directory[(2 * pos) + 1] = ptr;
   } else {
     ExtendibleLeaf *ptr = new ExtendibleLeaf(LeafSize, pos +(counter/2), 0);
+    ptr->parent=this;
     Directory[pos]->split(ptr);
     for(i = (counter/2); i < counter; i++)
     {
