@@ -56,13 +56,23 @@ void ExtendibleHash::insert(const int &object)
       j = j + k;;//Does actual move
     }
   }*/
+  while(1)
+  {
+
 
   j = Ehash(object, bits);
 /*  if(object == 128786)
       cout << "hi"<<endl;
   if(object == 3544)
       cout << "blah" << endl;*/
-  Directory[j]->insert(object);
+  k = (Directory[j]->insert(object));
+  if (k != -1)
+  {
+  this->split(k);
+  } else {
+      break;
+  }
+  }
  // cout << j << endl;
   
 } // insert()
@@ -232,11 +242,11 @@ void ExtendibleLeaf::insert2(int value)
     content[count] = value;
     count++;
 }
-void ExtendibleLeaf::insert(int value)
+int ExtendibleLeaf::insert(int value)
 {
   if(count >= size)
   {
-    parent->split(position);
+      return position;
 //cout<<"Pre\n\n";
 //parent->print();
 //    bitset<18> bitCheck (value);
@@ -248,13 +258,13 @@ void ExtendibleLeaf::insert(int value)
     } else {
       parent->insertNext(value, position);
     }*/
-    parent->insert(value);
 //cout<<"post\n\n";
 //parent->print();
   } else {
   
   content[count] = value;
   count++;
+  return -1;
   }
  // cout << value << " in slot " << count - 1 << " in ";
 

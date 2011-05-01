@@ -17,7 +17,7 @@ public:
   void insert(const int &object);
   void remove(const int &object);
   const int & find(const int &object);
-  void split(const int &object);
+  void split(const int & object);
   void splitCheck();
   void rehash();
   void insertNext(int value, int position);
@@ -31,7 +31,7 @@ class ExtendibleLeaf
 public:
   ExtendibleLeaf(int LeafSize, int pos, int bit);
   void insert2(int value);
-  void insert(int value);
+  int insert(int value);
   void remove(int value);
   void split(ExtendibleLeaf *nextSibling);
   void split2();
