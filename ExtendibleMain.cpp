@@ -22,7 +22,7 @@ int main(int argc, char* argv[])
   StartBits = atoi(strtok(NULL, "-"));
   ExtendibleHash  hash(-1, StartBits, LeafSize);
   bitset<18> set;
-
+  
   while(inf >> command)
   {
 
